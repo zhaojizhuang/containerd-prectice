@@ -23,7 +23,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 30,
-  "iteration": 1686997499684,
+  "iteration": 1687012043783,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1536,7 +1536,7 @@
       },
       "id": 35,
       "panels": [],
-      "title": "Containerd GRPC",
+      "title": "Containerd GRPC Server",
       "type": "row"
     },
     {
@@ -1589,10 +1589,35 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "grpc_server_handled_total{container=\"nginx\", endpoint=\"http-metrics\", grpc_code=\"Aborted\", grpc_method=\"Create\", grpc_service=\"containerd.services.sandbox.v1.Store\", grpc_type=\"unary\", instance=\"10.37.6.180:2345\", job=\"monitoring/containerd-monitor\", namespace=\"monitoring\", pod=\"containerd-monitor-zmz89\"}"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 12,
         "x": 0,
         "y": 33
@@ -1783,7 +1808,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 41
+        "y": 40
       },
       "id": 40,
       "options": {
@@ -1945,7 +1970,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 49
+        "y": 48
       },
       "id": 41,
       "options": {
@@ -2007,12 +2032,12 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "containerd",
   "uid": "iJgCXzXV3",
-  "version": 36
+  "version": 38
 }
