@@ -24,9 +24,11 @@ type plugin struct {
 var (
 	cfg config
 	log *logrus.Logger
+	_   = stub.ConfigureInterface(&plugin{})
+	_   = stub.CreateContainerInterface(&plugin{})
 )
 
-func (p *plugin) Configure(_ context.Context, config, runtime, version string) (stub.EventMask, error) {
+func (p *plugin) Configure(config, runtime, version string) (stub.EventMask, error) {
 	log.Infof("Connected to %s/%s...", runtime, version)
 
 	if config == "" {
@@ -43,7 +45,7 @@ func (p *plugin) Configure(_ context.Context, config, runtime, version string) (
 	return 0, nil
 }
 
-func (p *plugin) CreateContainer(_ context.Context, pod *api.PodSandbox, ctr *api.Container) (*api.ContainerAdjustment, []*api.ContainerUpdate, error) {
+func (p *plugin) CreateContainer(pod *api.PodSandbox, ctr *api.Container) (*api.ContainerAdjustment, []*api.ContainerUpdate, error) {
 	log.Infof("Creating container %s/%s/%s...", pod.GetNamespace(), pod.GetName(), ctr.GetName())
 
 	adjustment := &api.ContainerAdjustment{}
