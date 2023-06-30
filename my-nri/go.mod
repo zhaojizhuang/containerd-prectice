@@ -1,10 +1,11 @@
-module containerd-prectice/my-nri
+module my-nri
 
-go 1.20
+go 1.18
 
 require (
 	github.com/containerd/nri v0.3.0
 	github.com/sirupsen/logrus v1.9.3
+	sigs.k8s.io/yaml v1.3.0
 )
 
 require (
@@ -18,5 +19,6 @@ require (
 	google.golang.org/genproto v0.0.0-20220502173005-c8bf987b8c21 // indirect
 	google.golang.org/grpc v1.47.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
+	gopkg.in/yaml.v2 v2.4.0 // indirect
 	k8s.io/cri-api v0.25.3 // indirect
 )
