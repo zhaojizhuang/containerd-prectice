@@ -43,5 +43,15 @@ mv my-nri /opt/nri/plugins/02-my-nri
 systemctl restart containerd
 ```
 
+### 验证
+> 下面是通过 crictl 启动 容器
+> 注意 📢: 通过 crictl 启动时需停止 kubelet，避免 kubelet 删除相关
+
+```shell
+crictl run container-config.json pod-config.json
+crictl ps |grep busybox
+# 查看是否生效
+crictl exec -it <container id> env
+```
 
 
