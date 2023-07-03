@@ -45,7 +45,8 @@ systemctl restart containerd
 
 ### 验证
 > 下面是通过 crictl 启动 容器
-> 注意 📢: 通过 crictl 启动时需停止 kubelet，避免 kubelet 删除相关
+> 
+>  📢 **注意**: 通过 crictl 启动时需停止 kubelet，避免 kubelet 删除相关
 
 ```shell
 crictl run container-config.json pod-config.json
